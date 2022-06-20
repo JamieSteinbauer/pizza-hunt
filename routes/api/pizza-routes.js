@@ -23,3 +23,5 @@ router
     .delete(deletePizza);
 
 module.exports = router;
+
+// post route /api/pizzas

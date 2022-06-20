@@ -3,7 +3,7 @@ const dateFormat = require('../utils/dateFormat');
 
 const PizzaSchema = new Schema(
   {
-    pizzaname: {
+    pizzaName: {
       type: String,
     },
     createdBy: {
@@ -23,7 +23,8 @@ const PizzaSchema = new Schema(
     // ref property is important bc it tells the pizza model which documents to search to find the right comments
     comments: [
       {
-        type: String,
+        type: Schema.Types.ObjectId,
+        ref: 'Comment'
       },
     ],
   },
