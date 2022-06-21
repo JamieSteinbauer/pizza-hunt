@@ -5,9 +5,15 @@ const PizzaSchema = new Schema(
   {
     pizzaName: {
       type: String,
+      required: true,
+      trim: true
     },
     createdBy: {
       type: String,
+      // you can use a custom error message
+      required: true,
+      //removes whitespace which is useful for password and username
+      trim: true
     },
     createdAt: {
       type: Date,
@@ -17,7 +23,10 @@ const PizzaSchema = new Schema(
     },
     size: {
       type: String,
-      default: "large",
+      required: true,
+      // enumerable refers to a set of data that can be iterated over
+      enum: ['Personal', 'Small', 'Medium', 'Large', 'Extra Large'],
+      deafult: 'Large'
     },
     toppings: [],
     // ref property is important bc it tells the pizza model which documents to search to find the right comments
